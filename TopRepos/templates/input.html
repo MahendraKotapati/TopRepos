@@ -22,13 +22,11 @@
 
 <body  style="background-color : white">
     
-    <form method="post" action="" style="width: 300px;margin-left: 500px;margin-top: 200px;"> {% csrf_token %}
-        <!-- <h2 style="display: inline;"> Enter N & M </h2> -->
-        <!-- <a href="{% url 'index' %}"><span class="glyphicon glyphicon-remove" style="float:right;"></span> </a> -->
-
+    <h3 style="text-align:center;padding-top: 10%;"> Find top N repos of an organization  </h3>
+    <form method="post" action="" style="width: 300px;margin-left: 500px;margin-top: 3%;"> {% csrf_token %}
         <input type="text" class="form-control" name="organization" placeholder="organization" required="" autofocus=""/> <br>
-        <input type="number" class="form-control" name="n" placeholder="no of repos" required="" autofocus=""/> <br>
-        <input type="number" class="form-control" name="m" placeholder="no of committees " required=""/> <br>
+        <input type="number" class="form-control" name="n" placeholder="number of top repos" required="" autofocus=""/> <br>
+        <input type="number" class="form-control" name="m" placeholder="number of top committees" required=""/> <br>
          
         <button type="submit" class="btn btn-lg btn-block btn-success"> Submit </button> 
          

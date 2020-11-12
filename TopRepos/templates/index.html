@@ -32,29 +32,43 @@
 </head>
 
 <body>
-    
-    <a href="{% url 'index' %}" style="padding-left: 50%;"> Enter another Input </a>
+
+    <h3 style="text-align: center;"> <a href="{% url 'index' %}"> Search for another organization </a> </h3>
+    <div style="padding-left: 10%;">
+        <h4 style="color: green"> Results for : </h4>
+        <p> Organization : {{ organization_name }} </p>
+        <p> Number of Top Repos : {{  n }} </p>
+        <p> Number of Top Committees : {{ m }} </p>
+    </div>
+    <br> <br> <br>
     {% for repo,contributors in top_repos.items %}
         <div style="padding-left: 10%;">
-            <p> <a href="{{ repo }}"> {{ repo }} </a> </p>
+            <h4> Repo : <a href="{{ repo }}" target="_blank"> {{ repo }} </a> </h4>
             <table>
                 <tr>
                     <th>Name</th>
                     <th>Commit Count </th>
+                    <th> Profile  </th>
                 </tr>
-                {% for contributor,commit_count in contributors.items %}
+                {% for contributor,profile_data in contributors.items %}
                     <tr>
                         <td> 
-                        {{ contributor }} 
+                          {{ contributor }}
                         </td> 
                         <td>
-                            {{ commit_count }} 
+                            {{ profile_data.0 }} 
+                        </td>
+                        <td>
+                            <a href="{{ profile_data.1 }}" target="_blank"> {{ profile_data.1 }}  </a>
                         </td>
                     </tr>
                 {% endfor %}
             </table>
+            {% if  contributors.items|length < m %}
+                <p> only {{ contributors|length }}  contributors for this repo </p>
+            {% endif %}
         </div>
-        <hr>
+        <hr style="border-bottom: 2px solid green">
     {% endfor %}
     
     {% for msg in messages %}
