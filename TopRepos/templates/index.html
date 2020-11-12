@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE  html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+    <title> TopRepos </title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"  crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" href="{% static 'default.css' %}"> -->
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 5px;
+          text-align: left;    
+        }
+        </style>
+
+</head>
+
+<body>
+    
+    <a href="{% url 'index' %}" style="padding-left: 50%;"> Enter another Input </a>
+    {% for repo,contributors in top_repos.items %}
+        <div style="padding-left: 10%;">
+            <p> <a href="{{ repo }}"> {{ repo }} </a> </p>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Commit Count </th>
+                </tr>
+                {% for contributor,commit_count in contributors.items %}
+                    <tr>
+                        <td> 
+                        {{ contributor }} 
+                        </td> 
+                        <td>
+                            {{ commit_count }} 
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <hr>
+    {% endfor %}
+    
+    {% for msg in messages %}
+        <div class="row">
+            <div class="col-lg-4"> </div>
+            <div class="col-lg-7">
+                <div class="alert alert-danger" style="width: fit-content;">  {{ msg }} </div>
+            </div>
+            <div class="col-lg-1"> </div>
+        </div>    
+    {% endfor %}
+    
+</body>
+
+</html>

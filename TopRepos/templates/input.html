@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE  html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+    <title> TopRepos </title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"  crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" href="{% static 'default.css' %}"> -->
+
+</head>
+
+<body  style="background-color : white">
+    
+    <form method="post" action="" style="width: 300px;margin-left: 500px;margin-top: 200px;"> {% csrf_token %}
+        <!-- <h2 style="display: inline;"> Enter N & M </h2> -->
+        <!-- <a href="{% url 'index' %}"><span class="glyphicon glyphicon-remove" style="float:right;"></span> </a> -->
+
+        <input type="text" class="form-control" name="organization" placeholder="organization" required="" autofocus=""/> <br>
+        <input type="number" class="form-control" name="n" placeholder="no of repos" required="" autofocus=""/> <br>
+        <input type="number" class="form-control" name="m" placeholder="no of committees " required=""/> <br>
+         
+        <button type="submit" class="btn btn-lg btn-block btn-success"> Submit </button> 
+         
+    </form>
+
+    {% for msg in messages %}
+        <div class="row">
+            <div class="col-lg-4"> </div>
+            <div class="col-lg-4">
+                <div class="alert alert-danger" style="width: fit-content;">  {{ msg }} </div>
+            </div>
+            <div class="col-lg-4"> </div>
+        </div>    
+    {% endfor %}
+    
+    
+</body>
+
+</html>
