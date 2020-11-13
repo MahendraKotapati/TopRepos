@@ -1,3 +1,7 @@
+Screen shots for the wep app :
+https://drive.google.com/drive/folders/11f4VGTEAGC3FXqWq6mUW96lMIqeXReF7
+
+
 Steps to run web app on local machine :
 
 1)  download python 3 from  https://www.python.org/downloads/
@@ -21,5 +25,3 @@ Steps to run web app on local machine :
 
  				
 
-Screen shots for the wep app :
-https://drive.google.com/drive/folders/11f4VGTEAGC3FXqWq6mUW96lMIqeXReF7
