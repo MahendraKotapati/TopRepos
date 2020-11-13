@@ -1,3 +1,5 @@
+Steps to run web app on local machine :
+
 1)  download python 3 from  https://www.python.org/downloads/
 2)  install django using pip install Django== 2.2.7
 3)  download git repository using url  https://github.com/MahendraKotapati/TopRepos.git
